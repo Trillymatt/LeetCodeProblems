@@ -1,0 +1,36 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        int round = 0;
+        int curly = 0;
+        int square = 0;
+
+        for (char ch : s) {
+            if (ch == '(') {
+                round++;
+            } else if (ch == ')') {
+                round--;
+                if  (round < 0) return false;
+            }
+            if (ch == '{') {
+                curly++;
+            } else if (ch == '}') {
+                curly--;
+                if  (curly < 0) return false;
+            }
+            if (ch == '[') {
+                square++;
+            } else if (ch == ']') {
+                square--;
+                if  (square < 0) return false;
+            }
+
+            if ((round > 0 && (curly > 0 || square > 0)) ||
+            (curly > 0 && (round > 0 || square > 0)) || 
+            (square > 0 && (round > 0 || curly > 0))) {
+                return false;
+            }
+        }
+        return round == 0 && curly == 0 && square == 0;
+    }
+};
