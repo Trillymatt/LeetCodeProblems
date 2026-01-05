@@ -6,7 +6,7 @@ public:
 
     // Traverse the digits array from the last element to the first
     for (int i = n - 1; i >= 0; --i) {
-        // Add one to the current digit
+        // Add one to the current dig
         digits[i] += 1;
         
         // If the digit is less than 10, we're done, return the result
